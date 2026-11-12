@@ -22,24 +22,24 @@ const translations = {
     achievements: {
       title: "Achievements",
       2026: {
-        mateinfoub: "Third Prize, MateInfoUB, Faculty of Mathematics and Computer Science, University of Bucharest",
-        onsc: "First Prize, National Cybersecurity Olympiad, county stage, then participant in the national stage",
-        onji: "Honorable mention, National Informatics Olympiad, county stage",
-        hta: "Participant, HackTheArt contest"
+        mateinfoub: "Third Prize, <b>MateInfoUB</b>, Faculty of Mathematics and Computer Science, University of Bucharest",
+        onsc: "First Prize, <b>National Cybersecurity Olympiad</b>, county stage, then participant in the national stage",
+        onji: "Honorable mention, <b>National Informatics Olympiad</b>, county stage",
+        hta: "Participant, <b>HackTheArt</b> contest"
       },
       2025: {
-        unbreakable_individual: "28th of 482, UNbreakable International, individual phase",
-        unbreakable_teams: "25th of 211, UNbreakable Romania, team edition",
-        fiicode: "Honorable mention, FIICode, Cybersecurity section, national stage",
-        ojsc: "Honorable mention, National Cybersecurity Olympiad, county stage",
-        oji: "Honorable mention, National Informatics Olympiad, county stage"
+        unbreakable_individual: "28th of 482, <b>UNbreakable International</b>, individual phase",
+        unbreakable_teams: "25th of 211, <b>UNbreakable Romania</b>, team edition",
+        fiicode: "Honorable mention, <b>FIICode</b>, Cybersecurity section, national stage",
+        ojsc: "Honorable mention, <b>National Cybersecurity Olympiad</b>, county stage",
+        oji: "Honorable mention, <b>National Informatics Olympiad</b>, county stage"
       },
       2024: {
-        oji: "Honorable mention, National Informatics Olympiad, county stage",
-        tic: "Honorable mention, National IT Olympiad, ICT section, county stage"
+        oji: "Honorable mention, <b>National Informatics Olympiad</b>, county stage",
+        tic: "Honorable mention, <b>National IT Olympiad</b>, ICT section, county stage"
       },
       2022: {
-        iwsc: "Honorable mention, Info Winter Speed Code, national stage"
+        iwsc: "Honorable mention, <b>Info Winter Speed Code</b>, national stage"
       }
     },
     projects: {
@@ -76,24 +76,24 @@ const translations = {
     achievements: {
       title: "Realizări",
       2026: {
-        mateinfoub: "Premiul III, MateInfoUB, Facultatea de Matematică și Informatică, Universitatea din București",
-        onsc: "Premiul I, Olimpiada Națională de Securitate Cibernetică, etapa județeană, ulterior participant la etapa națională",
-        onji: "Mențiune, Olimpiada Națională de Informatică, etapa județeană",
-        hta: "Participant, concursul HackTheArt"
+        mateinfoub: "Premiul III, <b>MateInfoUB</b>, Facultatea de Matematică și Informatică, Universitatea din București",
+        onsc: "Premiul I, <b>Olimpiada Națională de Securitate Cibernetică</b>, etapa județeană, ulterior participant la etapa națională",
+        onji: "Mențiune, <b>Olimpiada Națională de Informatică</b>, etapa județeană",
+        hta: "Participant, concursul <b>HackTheArt</b>"
       },
       2025: {
-        unbreakable_individual: "Locul 28 din 482, UNbreakable International, faza individuală",
-        unbreakable_teams: "Locul 25 din 211, UNbreakable Romania, ediția pe echipe",
-        fiicode: "Mențiune, FIICode, secțiunea Securitate Cibernetică, etapa națională",
-        ojsc: "Mențiune, Olimpiada Națională de Securitate Cibernetică, etapa județeană",
-        oji: "Mențiune, Olimpiada Națională de Informatică, etapa județeană"
+        unbreakable_individual: "Locul 28 din 482, <b>UNbreakable International</b>, faza individuală",
+        unbreakable_teams: "Locul 25 din 211, <b>UNbreakable Romania</b>, ediția pe echipe",
+        fiicode: "Mențiune, <b>FIICode</b>, secțiunea Securitate Cibernetică, etapa națională",
+        ojsc: "Mențiune, <b>Olimpiada Națională de Securitate Cibernetică</b>, etapa județeană",
+        oji: "Mențiune, <b>Olimpiada Națională de Informatică</b>, etapa județeană"
       },
       2024: {
-        oji: "Mențiune, Olimpiada Națională de Informatică, etapa județeană",
-        tic: "Mențiune, Olimpiada Națională de Tehnologia Informației, secțiunea TIC, etapa județeană"
+        oji: "Mențiune, <b>Olimpiada Națională de Informatică</b>, etapa județeană",
+        tic: "Mențiune, <b>Olimpiada Națională de Tehnologia Informației</b>, secțiunea TIC, etapa județeană"
       },
       2022: {
-        iwsc: "Mențiune, Info Winter Speed Code, etapa națională"
+        iwsc: "Mențiune, <b>Info Winter Speed Code</b>, etapa națională"
       }
     },
     projects: {
@@ -130,7 +130,7 @@ function changeLang(lang) {
     const translation = getTranslation(translations[lang], key);
 
     if (translation !== null)
-      element.textContent = translation;
+      element.innerHTML = translation;
     else
       console.log(`[${lang}] ${key} not found!`)
   });
