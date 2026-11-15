@@ -10,6 +10,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 .nav {
@@ -20,10 +21,11 @@ body {
     align-content: start;
 
     position: fixed;
+    z-index: 11;
     top: 0;
     left: 0;
 
-    width: 200px;
+    width: 250px;
     height: 100vh;
 
     transform: translateX(-100%);
@@ -34,26 +36,46 @@ body {
 
 .nav .open {
     font-size: 50pt;
-    position:relative;
+    position: relative;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     width: max-content;
     padding-left: 10px;
     height: 40px;
-    right: -200px;
+    right: -250px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* hint that the menu can be opened: several properties animated together */
+    animation: menu-hint 1.6s ease-in-out 3;
 }
 
 .nav.open,
-.nav:hover {
+.nav:hover,
+.nav:focus-within {
     transform: translateX(0);
 }
 
 .nav ul {
     margin: 0;
     padding: 0;
+}
+
+/* lets the menu scroll on short screens without clipping the "open" handle */
+.nav .nav-container {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+.nav>ul>li>img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*alt text*/
+    height: 333px;
+    width: 250px;
+    object-fit: cover;
 }
 
 .nav ul li a {
@@ -67,9 +89,12 @@ body {
     color: white;
 
     height: 50px;
+
+    /* two properties, different durations and delays */
+    transition: background-color 0.2s ease, color 0.5s ease 0.1s;
 }
 
-.nav ul li + li a {
+.nav ul li+li+li a {
     border-top: var(--color-secondary) 2px solid;
 }
 
@@ -106,20 +131,31 @@ body {
     color: #7a7a80;
 }
 
-.main-container #projects ul li  {
+.main-container #projects ul li {
     margin-top: 1em;
 }
 
-.main-container section + section {
+.main-container section+section {
     border-top: gray 2px solid;
 }
 
 .main-container section {
     font-size: 14pt;
+
+    /* keeps headings below the sticky header when jumping to an anchor */
+    scroll-margin-top: 50px;
 }
 
-.main-container section h1 {
+.main-container section h1,
+.main-container section h2 {
     color: var(--color-primary);
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+.main-container #achievements h3 {
+    font-size: 1em;
+    margin: 0;
 }
 
 .main-container #socials ul li {
@@ -133,13 +169,14 @@ body {
     width: 1em;
 }
 
-.main-container #socials ul li a  {
+.main-container #socials ul li a {
     color: #7a7a80;
     text-decoration: none;
 }
 
 .header {
     position: sticky;
+    z-index: 10;
     top: 0;
     height: 40px;
     width: 100%;
@@ -148,7 +185,7 @@ body {
 
 .header #langSelector {
     position: absolute;
-    
+
     font-size: 15pt;
 
     top: 50%;
@@ -164,11 +201,46 @@ body {
 
 }
 
-.header #langSelector #bar {
-    font-weight: bold;
+.header #langSelector div:nth-of-type(2) {
+    position: relative;
+    width: 0.4em;
+    height: 1em;
 }
 
-#sLang, #nLang {
+.header #langSelector div:nth-of-type(2)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: var(--color-secondary);
+    transform: translateX(-50%);
+}
+
+.header #langSelector div:nth-of-type(2)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 0.25em;
+    border-radius: 999px;
+    background-color: white;
+    opacity: 0;
+    transform: translateX(-50%);
+}
+
+body.language-updated .header #langSelector div:nth-of-type(2)::before {
+    animation: language-divider-pulse 1s ease-in-out;
+}
+
+body.language-updated .header #langSelector div:nth-of-type(2)::after {
+    animation: language-divider-glint 1s ease-in-out;
+}
+
+#sLang,
+#nLang {
     cursor: pointer;
 }
 
@@ -178,6 +250,65 @@ body {
 
 #nLang {
     color: var(--color-secondary);
+}
+
+body.language-updated [data-i18n] {
+    animation: translated-text-appear 0.5s ease both;
+}
+
+@keyframes translated-text-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes language-divider-pulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: translateX(-50%) scaleY(0.75);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+@keyframes language-divider-glint {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    15%,
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        top: calc(100% - 0.25em);
+        opacity: 0;
+    }
+}
+
+@keyframes menu-hint {
+
+    0%,
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(6px);
+        opacity: 0.6;
+    }
 }
 
 .footer {
@@ -196,4 +327,64 @@ body {
 
     justify-content: center;
     align-items: center;
+}
+
+.footer p {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.67em 0;
+}
+
+@media screen and (max-width: 600px) {
+    .main-container section {
+        font-size: 12pt;
+        line-height: 1.45;
+    }
+}
+
+/* wider screens: achievements laid out in two columns */
+@media screen and (min-width: 800px) {
+    .main-container #achievements {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        align-content: start;
+    }
+
+    .main-container #achievements h2 {
+        grid-column: 1 / -1;
+    }
+
+    .main-container #achievements .year {
+        margin-bottom: 1em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    /* acc settings */
+    body.language-updated [data-i18n] {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    body.language-updated .header #langSelector div:nth-of-type(2)::before,
+    body.language-updated .header #langSelector div:nth-of-type(2)::after {
+        animation: none;
+    }
+
+    .header #langSelector div:nth-of-type(2)::after {
+        display: none;
+    }
+
+    /* keep the menu collapsed, just without sliding or other motion */
+    .nav,
+    .nav ul li a {
+        transition: none;
+    }
+
+    .nav .open {
+        animation: none;
+    }
 }

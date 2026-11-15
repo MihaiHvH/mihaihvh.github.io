@@ -117,11 +117,22 @@ function getTranslation(obj, path) {
   return path.split('.').reduce((acc, part) => (acc && acc[part] !== undefined ? acc[part] : null), obj);
 }
 
-function changeLang(lang) {
+function changeLang(lang, animate = false) {
   if (!translations[lang]) {
     console.log(`Language ${lang} not found!`)
     return;
   }
+
+  const languageChanged = document.documentElement.lang.toUpperCase() !== lang;
+  document.body.classList.remove("language-updated");
+
+  if (animate && languageChanged) {
+    // Restart the language-change animation.
+    void document.body.offsetWidth;
+  }
+
+  sLang.id = lang === "EN" ? "sLang" : "nLang";
+  nLang.id = lang === "RO" ? "sLang" : "nLang";
 
   document.documentElement.lang = lang.toLowerCase();
   document.getElementById("cv").href="res/cv_" + lang.toLowerCase() + ".pdf";
@@ -134,20 +145,20 @@ function changeLang(lang) {
     else
       console.log(`[${lang}] ${key} not found!`)
   });
+
+  localStorage.setItem("Language", lang)
+
+  if (animate && languageChanged)
+    document.body.classList.add("language-updated");
 }
 
-// Language :P
-
-document.addEventListener("DOMContentLoaded", changeLang("EN"));
+const savedLanguage = localStorage.getItem("Language");
+changeLang(translations[savedLanguage] ? savedLanguage : "EN");
 
 sLang.addEventListener("click", () => {
-  sLang.id = "sLang";
-  nLang.id = "nLang";
-  changeLang(sLang.innerText)
+  changeLang(sLang.innerText, true)
 });
 
 nLang.addEventListener("click", () => {
-  sLang.id = "nLang";
-  nLang.id = "sLang";
-  changeLang(nLang.innerText)
+  changeLang(nLang.innerText, true)
 });

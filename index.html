@@ -1,111 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="style/style.css">
         <link rel="icon" type="image/x-icon" href="res/icon.ico">
 
-        <script type="text/javascript" src="js/script.js" defer></script>
+        <script src="js/script.js" defer></script>
 
         <title>Țuburlui Mihai</title>
     </head>
 
     <body>
         <header class="header">
-            <nav class="nav">
+            <nav class="nav" aria-label="Main navigation">
                 <div class="open">≡</div>
-                
+
                 <ul class="nav-container">
-                    <li><a href="#about" data-i18n="nav.about"></a></li>
-                    <li><a href="#achievements" data-i18n="nav.achievements"></a></li>
-                    <li><a href="#projects" data-i18n="nav.projects"></a></li>
-                    <li><a href="#socials" data-i18n="nav.socials"></a></li>
-                    <li><a href="" id="cv" data-i18n="nav.cv"></a></li>
+                    <li><img src="res/pf.jpg" alt="Photo of Țuburlui Mihai"></li>
+                    <li><a href="#about" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="#achievements" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#socials" data-i18n="nav.socials">Socials</a></li>
+                    <li><a href="res/cv_en.pdf" id="cv" data-i18n="nav.cv">Curriculum Vitae</a></li>
                 </ul>
             </nav>
 
-            <section id="langSelector">
+            <div id="langSelector">
                 <div id="nLang">RO</div>
-                <div id="bar">|</div>
+                <div id="bar" aria-hidden="true"></div>
                 <div id="sLang">EN</div>
-            </section>
+            </div>
         </header>
 
         <main class="main-container">
             <section id="about">
-                <h1 data-i18n="about.title"></h1>
-                <p data-i18n="about.introduction"></p>
-                <p data-i18n="about.hobbies"></p>
-                <p data-i18n="about.skills"></p>
-                <p data-i18n="about.education"></p>
-                <p data-i18n="about.volunteering"></p>
-                <p data-i18n="about.language"></p>
+                <h1 data-i18n="about.title">About Me</h1>
+                <p data-i18n="about.introduction">I’m a computer science student at the University of Bucharest, Faculty of Mathematics and Computer Science, where I started in October 2026. I’m self-taught and have been writing C++ for 8 years, and I’m always learning something new. I compete in cybersecurity and informatics contests, and I took part in the national round of the National Cybersecurity Olympiad in 2026.</p>
+                <p data-i18n="about.hobbies">Away from the screen I ride bikes, mountain bikes especially, and I know how to repair them. I like being in nature. In my free time I 3D print custom models for people close to me and engrave messages in wood with the same machine.</p>
+                <p data-i18n="about.skills">Skills: C++, Python, x86 assembly, web, network, mobile and pwn security, Linux (Fedora, Kali), Windows, Arduino and ESP32, 3D modeling (FreeCAD, Tinkercad), 3D printing (Ideamaker)</p>
+                <p data-i18n="about.education">Education: Faculty of Mathematics and Computer Science, University of Bucharest (2026 to present); Colegiul Național de Informatică, Piatra Neamț (2022 to 2026); Cybersecurity course, Algolymp (2025 to 2026); informatics qualification at the “Hai la Olimpiadă” Center of Excellence (2018 to 2026)</p>
+                <p data-i18n="about.volunteering">Volunteering: Cozla Bike, supervising participants at Marea Mișcare and Gârcina Bike Tour (2023 to present); team coordination at the Team Informatics Olympiad national stage and PROSOFT@NT (2024); school days activities (2023); organizer of the “Ziua Științelor” symposium (2025)</p>
+                <p data-i18n="about.language">Languages: Romanian (native), English (B2)</p>
             </section>
 
             <section id="achievements">
-                <h1 data-i18n="achievements.title"></h1>
-                
-                <b>2026</b>
-                <ul>
-                    <li data-i18n="achievements.2026.mateinfoub"></li>
-                    <li data-i18n="achievements.2026.onsc"></li>
-                    <li data-i18n="achievements.2026.onji"></li>
-                    <li data-i18n="achievements.2026.hta"></li>
-                </ul>
+                <h2 data-i18n="achievements.title">Achievements</h2>
 
-                <b>2025</b>
-                <ul>
-                    <li data-i18n="achievements.2025.unbreakable_individual"></li>
-                    <li data-i18n="achievements.2025.unbreakable_teams"></li>
-                    <li data-i18n="achievements.2025.fiicode"></li>
-                    <li data-i18n="achievements.2025.ojsc"></li>
-                    <li data-i18n="achievements.2025.oji"></li>
-                </ul>
+                <article class="year">
+                    <h3>2026</h3>
+                    <ul>
+                        <li data-i18n="achievements.2026.mateinfoub">Third Prize, <b>MateInfoUB</b>, Faculty of Mathematics and Computer Science, University of Bucharest</li>
+                        <li data-i18n="achievements.2026.onsc">First Prize, <b>National Cybersecurity Olympiad</b>, county stage, then participant in the national stage</li>
+                        <li data-i18n="achievements.2026.onji">Honorable mention, <b>National Informatics Olympiad</b>, county stage</li>
+                        <li data-i18n="achievements.2026.hta">Participant, <b>HackTheArt</b> contest</li>
+                    </ul>
+                </article>
 
-                <b>2024</b>
-                <ul>
-                    <li data-i18n="achievements.2024.oji"></li>
-                    <li data-i18n="achievements.2024.tic"></li>
-                </ul>
+                <article class="year">
+                    <h3>2025</h3>
+                    <ul>
+                        <li data-i18n="achievements.2025.unbreakable_individual">28th of 482, <b>UNbreakable International</b>, individual phase</li>
+                        <li data-i18n="achievements.2025.unbreakable_teams">25th of 211, <b>UNbreakable Romania</b>, team edition</li>
+                        <li data-i18n="achievements.2025.fiicode">Honorable mention, <b>FIICode</b>, Cybersecurity section, national stage</li>
+                        <li data-i18n="achievements.2025.ojsc">Honorable mention, <b>National Cybersecurity Olympiad</b>, county stage</li>
+                        <li data-i18n="achievements.2025.oji">Honorable mention, <b>National Informatics Olympiad</b>, county stage</li>
+                    </ul>
+                </article>
 
-                <b>2022</b>
-                <ul>
-                    <li data-i18n="achievements.2022.iwsc"></li>
-                </ul>
+                <article class="year">
+                    <h3>2024</h3>
+                    <ul>
+                        <li data-i18n="achievements.2024.oji">Honorable mention, <b>National Informatics Olympiad</b>, county stage</li>
+                        <li data-i18n="achievements.2024.tic">Honorable mention, <b>National IT Olympiad</b>, ICT section, county stage</li>
+                    </ul>
+                </article>
+
+                <article class="year">
+                    <h3>2022</h3>
+                    <ul>
+                        <li data-i18n="achievements.2022.iwsc">Honorable mention, <b>Info Winter Speed Code</b>, national stage</li>
+                    </ul>
+                </article>
             </section>
 
             <section id="projects">
-                <h1 data-i18n="projects.title"></h1>
+                <h2 data-i18n="projects.title">Projects</h2>
                 <ul>
-                    <li data-i18n="projects.github"></li>
-                    <li data-i18n="projects.llm_tts"></li>
-                    <li data-i18n="projects.embedded_systems"></li>
-                    <li data-i18n="projects.3dprinting"></li>
+                    <li data-i18n="projects.github">C++ applications: Many projects written over 8 years of C++, published on GitHub.</li>
+                    <li data-i18n="projects.llm_tts">Local LLM fine-tuning and TTS: Training and optimizing language models on my own hardware with RoLlama through Unsloth, and building voice synthesis with Piper TTS.</li>
+                    <li data-i18n="projects.embedded_systems">Arduino and ESP32 automation: Automation systems built on Arduino and ESP32 boards, including the programming.</li>
+                    <li data-i18n="projects.3dprinting">3D printing: Custom printed models for friends and family, some downloaded and some designed by me, plus wood engraving with the same printer. More at instagram.com/3dprintingpn.</li>
                 </ul>
             </section>
 
             <section id="socials">
-                <h1 data-i18n="socials.title"></h1>
+                <h2 data-i18n="socials.title">Socials</h2>
                 <ul>
                     <li>
-                        <img src="res/svg/github.svg" alt="GitHub Icon">
+                        <img src="res/svg/github.svg" alt="">
                         <a id="github" href="https://www.github.com/MihaiHvH">GitHub: MihaiHvH</a>
                     </li>
 
                     <li>
-                        <img src="res/svg/instagram.svg" alt="Instagram Icon"> 
+                        <img src="res/svg/instagram.svg" alt="">
                         <a href="https://www.instagram.com/mihaihvh"> Instagram: @mihaihvh </a>
                     </li>
 
                     <li>
-                        <img src="res/svg/linkedin.svg" alt="LinkedIn Icon">
+                        <img src="res/svg/linkedin.svg" alt="">
                         <a href="https://www.linkedin.com/in/%C8%9Buburlui-mihai/"> LinkedIn: Țuburlui Mihai </a>
                     </li>
 
                     <li>
-                        <img src="res/svg/gmail.svg" alt="E-Mail Icon">
+                        <img src="res/svg/gmail.svg" alt="">
                         <a href="mailto:tuburluimihaita@gmail.com">E-Mail: tuburluimihaita@gmail.com</a>
                     </li>
                 </ul>
@@ -113,7 +122,7 @@
         </main>
 
         <footer class="footer">
-            <h1 data-i18n="footer.copyright"></h1>
+            <p data-i18n="footer.copyright">© Țuburlui Mihai. All rights reserved.</p>
         </footer>
     </body>
 </html>
